@@ -1,75 +1,28 @@
-import datetime as dt
+import math
+from pprint import pprint
+import json
+PI = math.pi
+print(f"PI ning qiymati: {PI}")
 
-hozir= dt.datetime.now()
-print(hozir)
+E = math.e
+print(f"e ning qiymati:{E}")
 
-# sanani ajratib olish 
-print(hozir.date())
+x = 81
 
-# vaqtni ajratib olish 
-print(hozir.time())
+# Kvadrat ildiz 
+math.sqrt(x)
 
-# soatni ajratib olish 
-print(hozir.hour)
-
-# minutni ajratib olish 
-print(hozir.minute)
-
-# sekundni ajratib olish 
-print(hozir.second)
-
-
-# Agar bugungi kunning sanasi talab qilinsa datetime moduli ichidagi date.today() moduliga murojat qilamiz.
-bugun = dt.date.today()
-print(bugun)
-
-ertaga= dt.date(2022, 5, 30)
-print(f"Ertangi sana: {ertaga}")
-
-hozir = dt.datetime.now()
-vaqtHozir = hozir.time()
-print(f"Hozir soat: {vaqtHozir}")
-
-# istalgan vaqt kiritish 
-vaqtKeyin = dt.time(21,00,10)
+#Darajaga oshirish 
+math.pow(x,3) # x ning kubi
+print(math.pow(x,5)) # x ning 5-darajasi
+print(math.pow(x,1/3)) # x dan kub ildiz
 
 
+## CHIROYLI PRINT-pprint
+filename = 'bemor.json'
+with open(filename) as f:
+  bemor = json.load(f)
 
-# Oradagi farqlarni xisoblash
-bugun = dt.date.today()
-iyul = dt.date(2022,7,1)
-farq = iyul-bugun
-print(farq)
-print(f"Iyul oyiga {farq.days} kun qoldi\n")
+print(f"\n{bemor}\n")
+pprint(bemor)
 
-bugun = dt.date.today()
-ramazon = dt.date(2021, 4, 13)
-farq = ramazon-bugun
-print(farq)
-print(f"Ramazonga {farq.days} kun qoldi")
-
-# kun, soat, minut, sekundlardagi  farq
-
-hozir = dt.datetime.now()
-working = dt.datetime(2022,11,16,12,00,00)
-farq = working - hozir
-kunlar = farq.days
-sekundlar = farq.seconds
-minutlar = int(sekundlar/60)
-soatlar = int(minutlar/60)
-print(f"Working boshlanishiga {kunlar} kun, {sekundlar} sekund qoldi\n ")
-print(f"Working boshlanishiga {kunlar} kun, {minutlar} minut qoldi\n")
-print(f"Working boshlanishiga {kunlar} kun, {soatlar} soat qoldi\n")
-
-
-# vaqtni millisekundsiz chiqaramiz 
-vaqt = hozir.strftime("%H:%M:%S")
-print(f"Hozir soat: {vaqt}")
-
-# sanani kun- oy-yil ko'rinishida chaqiramiz
-sana = hozir.strftime("%d-%m-%Y")
-print(f"Bugun sana: {sana}")
-
-#sanani kun/oy/yil ko'rinishida chiqaramiz
-sana_vaqt = hozir.strftime("%d/%m/%Y, %H:%M")
-print(sana_vaqt)
